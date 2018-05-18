@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.guana" name="Ghana Repo" version="1.0" provider-name="Ghana">
-	<extension point="xbmc.addon.repository" name="Ghana">
-		<info compressed="false">http://github.com/DBoxStreams/Ghana/raw/master/Repository/addons.xml</info>
-		<checksum>http://github.com/DBoxStreams/Ghana/raw/master/Repository/addons.xml.md5</checksum>
-		<datadir zip="true">http://github.com/DBoxStreams/Ghana/raw/master/Repository/zips</datadir>
+<addon id="repository.guana" name="Fireball Repo" version="1.0" provider-name="bumbum">
+	<extension point="xbmc.addon.repository" name="bumbum">
+		<info compressed="false">https://github.com/DBoxStreams/repo.fireball/raw/master/addons.xml</info>
+		<checksum>https://github.com/DBoxStreams/repo.fireball/raw/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://github.com/DBoxStreams/repo.fireball/raw/master/zips</datadir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary>Repo for Ghana</summary>
-		<description>Repo for Ghana</description>
+		<summary>Whatever the fuck I want</summary>
+		<description>Yet again, whatever the fuck I want</description>
 		<platform>all</platform>
 	</extension>
 </addon>
