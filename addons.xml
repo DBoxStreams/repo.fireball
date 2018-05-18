@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+<addon id="plugin.video.fireball" name="Fireball" version="2018.05.17" provider-name="bumbum">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.simplejson" version="3.3.0"/>
+    <import addon="script.module.urlresolver"  version="3.0.32"/>
+    <import addon="script.module.liveresolver" version="0.1.24"/>
+    <import addon="script.common.plugin.cache" version="2.5.2"/>
+
+    <import addon="script.module.metahandler" version="2.5.1"/>
+    <import addon="plugin.video.youtube" optional="true" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Fireball</summary>
+    <description lang="en">Whatever the fuck I want</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.GhanaTV"
+       name="Ghana TV"
+       version="1.2.0.0"
+       provider-name="Unknown">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.beautifulsoup" version="3.0.8"/>
+    <import addon="script.module.simplejson" />
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Ghana TV</summary>
+    <description>Ghana TV</description>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="repository.guana" name="Ghana Repo" version="1.0" provider-name="Ghana">
+	<extension point="xbmc.addon.repository" name="Ghana">
+		<info compressed="false">http://github.com/DBoxStreams/Ghana/raw/master/Repository/addons.xml</info>
+		<checksum>http://github.com/DBoxStreams/Ghana/raw/master/Repository/addons.xml.md5</checksum>
+		<datadir zip="true">http://github.com/DBoxStreams/Ghana/raw/master/Repository/zips</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Repo for Ghana</summary>
+		<description>Repo for Ghana</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+</addons>
