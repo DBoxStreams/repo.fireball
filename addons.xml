@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.video.fireball" name="Fireball" version="2018.05.17" provider-name="bumbum">
+
+
+<addon id="plugin.video.fireball" name="Fireball" version="2018.05.21" provider-name="bumbum">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson" version="3.3.0"/>

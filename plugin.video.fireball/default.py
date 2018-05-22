@@ -247,13 +247,27 @@ def GetContent(name,url,iconimage,fanart):
                         iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
                         fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                         addDir(name,url,322,iconimage,fanart,'')
-#### Added WRX Menu
+#### Add http://scene-rls.net/
+                elif '<scnrls_xml>' in item:
+                        name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                        iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
+                        fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                        url=re.compile('<scnrls_xml>(.+?)</scnrls_xml>').findall(item)[0]
+                        addDir(name,url,330,iconimage,fanart)
+#### Added WRZ Menu
                 elif "<wrzcraft_xml>" in item:
                         name=re.compile('<title>(.+?)</title>').findall(item)[0]
                         url=re.compile('<wrzcraft_xml>(.+?)</wrzcraft_xml>').findall(item)[0]
                         iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
                         fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                         addDir(name,url,324,iconimage,fanart,'')
+#### Added Watchwrestlingup Menu
+                elif "<watchwrestlingup_xml>" in item:
+                        name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                        url=re.compile('<watchwrestlingup_xml>(.+?)</watchwrestlingup_xml>').findall(item)[0]
+                        iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
+                        fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
+                        addDir(name,url,326,iconimage,fanart,'')
                 elif '<dx-tv>' in item:
                         name=re.compile('<title>(.+?)</title>').findall(item)[0]
                         iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
@@ -395,7 +409,63 @@ def DXTV_LINKS(name,url):
                 quit()
             else:
                 PLAYLINK(name,streamurl[select],icon)
+#### Add SCNRLS
+def SCNRLS_CATS(url):
 
+    u = open_url(url).replace('\n', '').replace('\r','').replace('\t','')
+    match = re.compile('<h2 class="postTitle"><span></span><a href="(.+?)" title=".+?">(.)(.*?)</a></h2>.+?<div class="postContent"><p><a target="_blank" href="(.+?)">',re.DOTALL).findall(u)
+    for url2,first,rest,image in match:
+        name = ('[B][COLOR dimgrey]' + first + '[/COLOR][COLOR darkred]' + rest +'[/COLOR][/B]')
+        iconimage = image.encode('utf-8')
+        name = name.replace('Watch','').replace('Download','').replace('online','').encode('utf-8').lstrip()
+        addLink(name,url2,331,iconimage,fanart)
+    np = re.compile("<span id=\"olderEntries\"><a href=\"(.+?)\" >").findall(u)
+    for nextpage in np:	
+        addDir('Next Page -->',nextpage,330,icon,fanart)
+
+def SCNRLS_LINKS(name,url):
+
+    xbmc.executebuiltin("ActivateWindow(busydialog)")
+
+    r = open_url(url)
+    r = re.compile('href="(.+?)"').findall(r)
+    if len(r) == 0: quit()
+    elif len(r) >= 1:
+        streamurl=[]
+        streamname=[]
+        a = 0
+        for b in r:
+            b = b.lstrip()
+            if '.rar' not in b:
+                c = b.lstrip().replace('http://','').replace('https://','').replace('www.','').replace('.com','').replace('.net','').replace('.org','').replace('.co','').replace('.to','')
+                d = re.compile('^(.+?)/.+?/.+?/(.+?)(mp4|avi|mkv|rar|html)').findall(c)
+            for host,file,type in d:
+                if 'mkv' in type:
+                    type = 'MKV'
+                elif 'mp4' in type:
+                    type = 'MP4'
+                elif 'rar' in type:
+                    type = 'Not A Playable Format'
+                elif 'html' in type:
+                    type = '?'
+                elif 'avi' in type:
+                    type = 'AVI'
+                e = '[B][COLOR dimgrey]'+host+'[/COLOR] [COLOR white]|[/COLOR] [COLOR yellow]'+type+'[/COLOR] [COLOR white]|[/COLOR] [COLOR darkred]'+file+'[/COLOR][/B]'
+            if urlresolver.HostedMediaFile(b).valid_url():
+                a += 1
+                streamurl.append(b)
+                streamname.append('%s' % str(e))
+        xbmc.executebuiltin("Dialog.Close(busydialog)")
+        if len(streamurl) == 1: PLAYLINK(name,streamurl[0],icon)
+        else:
+            dialog = xbmcgui.Dialog()
+            select = dialog.select(name,streamname)
+            if select < 0:
+                quit()
+            else:
+                PLAYLINK(name,streamurl[select],icon)
+
+##########  Start WRZCraft
 def WRZCRAFT_CATS(url):
 
     u = open_url(url).replace('\n', '').replace('\r','').replace('\t','')
@@ -454,6 +524,7 @@ def WRZCRAFT_LINKS(name,url):
             else:
                 PLAYLINK(name,streamurl[select],icon)
 
+###########  Start Watchwrestlingup
 def WATCHWRESTLINGUP_CATS(url):
 
     u = open_url(url).replace('\n', '').replace('\r','').replace('\t','')
@@ -1330,6 +1401,11 @@ elif mode==324:WRZCRAFT_CATS(url)
 elif mode==325:WRZCRAFT_LINKS(name,url)
 elif mode==328:WRZCRAFT_MENU(url)
 
+elif mode==330:SCNRLS_CATS(url)
+elif mode==331:SCNRLS_LINKS(name,url)
+elif mode==332:SCNRLS_MENU(url)
+
+elif mode==329:WATCHWRESTLINGUP_MENU(url)
 elif mode==326:WATCHWRESTLINGUP_CATS(url)
 elif mode==327:WATCHWRESTLINGUP_LINKS(name,url)
 
