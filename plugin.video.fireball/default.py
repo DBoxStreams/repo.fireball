@@ -421,7 +421,7 @@ def SCNRLS_CATS(url):
         addLink(name,url2,331,iconimage,fanart)
     np = re.compile("<span id=\"olderEntries\"><a href=\"(.+?)\" >").findall(u)
     for nextpage in np:	
-        addDir('Next Page -->',nextpage,330,icon,fanart)
+        addDir('~~~ Next Page ~~~>',nextpage,330,icon,fanart)
 
 def SCNRLS_LINKS(name,url):
 
@@ -433,6 +433,7 @@ def SCNRLS_LINKS(name,url):
     elif len(r) >= 1:
         streamurl=[]
         streamname=[]
+        quality=[]
         a = 0
         for b in r:
             b = b.lstrip()
@@ -450,7 +451,16 @@ def SCNRLS_LINKS(name,url):
                     type = '?'
                 elif 'avi' in type:
                     type = 'AVI'
-                e = '[B][COLOR dimgrey]'+host+'[/COLOR] [COLOR white]|[/COLOR] [COLOR yellow]'+type+'[/COLOR] [COLOR white]|[/COLOR] [COLOR darkred]'+file+'[/COLOR][/B]'
+                if '1080' in file:
+                    quality = '1080p'
+                elif '720' in file:
+                    quality = '720p'
+                elif '480' in file:
+                    quality = '480p'
+                else:
+                    quality = 'SD'
+                file = file.replace('.',' ').replace('HDTV','').replace('KILLERS','').replace('RBB','').replace('mSD','').replace('480p','').replace('720p','').replace('1080p','').replace('hdtv','').replace('xvid','').replace('XviDAFG','').replace('hevc','').replace('HEVC','').replace('MeGusta','').replace('W4F','').replace('AAC-RARBG','').replace('x264-REGRET','').replace('-REGRET','').replace('x264-DARKFLiX','').replace('WEB','').replace('x264-CAFFEiNE','').replace('-CAFFEiNE','').replace('x264-BATV','').replace('-BATV','').replace('x264-BTN','').replace('-BTN','').replace('x264-YTS','').replace('-YTS','').replace('WEBRip','').replace('x264-TBS','').replace('-TBS','').replace('AAC-RARBG','').replace('-RARBG','').replace('h 264-SHRPY','').replace('-SHRPY','').replace('x264-LucidTV','').replace('-LucidTV','').replace('x264-SVA','').replace('-SVA','').replace('h264-HEEL','').replace('-HEEL','').replace('x264','').replace('x265','').replace('-','').replace('  ',' ').title().replace('Wwe','WWE').replace('Ufc','UFC').replace('Ncis','NCIS').replace('Web Tbs','')
+                e = '[B][COLOR dimgrey]'+host+'[/COLOR] [COLOR white]|[/COLOR] [COLOR lime]'+str(quality)+'[/COLOR] [COLOR white]|[/COLOR] [COLOR yellow]'+type+'[/COLOR] [COLOR white]|[/COLOR] [COLOR darkred]'+file+'[/COLOR][/B]'
             if urlresolver.HostedMediaFile(b).valid_url():
                 a += 1
                 streamurl.append(b)
