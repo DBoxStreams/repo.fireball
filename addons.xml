@@ -2,7 +2,7 @@
 <addons>
 
 
-<addon id="plugin.video.fireball" name="Fireball" version="2018.05.23" provider-name="bumbum">
+<addon id="plugin.video.fireball" name="Fireball" version="2018.05.24" provider-name="bumbum">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.simplejson" version="3.3.0"/>
