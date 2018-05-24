@@ -249,21 +249,30 @@ def GetContent(name,url,iconimage,fanart):
                         addDir(name,url,322,iconimage,fanart,'')
 #### Add http://scene-rls.net/
                 elif '<scnrls_xml>' in item:
-                        name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                        title=re.compile('<title>(.*?)</title>').findall(item)[0]
+                        first = title[0][:1]
+                        rest = title[1:]
+                        name = ('[B][COLOR dimgrey]' + first + '[/COLOR][COLOR darkred]' + rest +'[/COLOR][/B]')
                         iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]            
                         fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                         url=re.compile('<scnrls_xml>(.+?)</scnrls_xml>').findall(item)[0]
                         addDir(name,url,330,iconimage,fanart)
 #### Added WRZ Menu
                 elif "<wrzcraft_xml>" in item:
-                        name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                        title=re.compile('<title>(.*?)</title>').findall(item)[0]
+                        first = title[0][:1]
+                        rest = title[1:]
+                        name = ('[B][COLOR dimgrey]' + first + '[/COLOR][COLOR darkred]' + rest +'[/COLOR][/B]')
                         url=re.compile('<wrzcraft_xml>(.+?)</wrzcraft_xml>').findall(item)[0]
                         iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
                         fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
                         addDir(name,url,324,iconimage,fanart,'')
 #### Added Watchwrestlingup Menu
                 elif "<watchwrestlingup_xml>" in item:
-                        name=re.compile('<title>(.+?)</title>').findall(item)[0]
+                        title=re.compile('<title>(.*?)</title>').findall(item)[0]
+                        first = title[0][:1]
+                        rest = title[1:]
+                        name = ('[B][COLOR dimgrey]' + first + '[/COLOR][COLOR darkred]' + rest +'[/COLOR][/B]')
                         url=re.compile('<watchwrestlingup_xml>(.+?)</watchwrestlingup_xml>').findall(item)[0]
                         iconimage=re.compile('<thumbnail>(.+?)</thumbnail>').findall(item)[0]
                         fanart=re.compile('<fanart>(.+?)</fanart>').findall(item)[0]
@@ -539,14 +548,15 @@ def WRZCRAFT_LINKS(name,url):
 def WATCHWRESTLINGUP_CATS(url):
 
     u = open_url(url).replace('\n', '').replace('\r','').replace('\t','')
-    match = re.compile('<a class="clip-link" data-id=".+?" title="(.+?)" href="(.+?)"><span class="clip"><img src="(.+?)"',re.DOTALL).findall(u)
-    for name,url2,image in match:
+    match = re.compile('<a class="clip-link" data-id=".+?" title="(.)(.+?)" href="(.+?)"><span class="clip"><img src="(.+?)"',re.DOTALL).findall(u)
+    for first,rest,url2,image in match:
+        name = ('[B][COLOR dimgrey]' + first + '[/COLOR][COLOR darkred]' + rest +'[/COLOR][/B]')
         iconimage = image.encode('utf-8')
-        name = name.replace('Watch','').replace('Download','').replace('online','').replace('/','').encode('utf-8').lstrip()
+        name = name.replace('Watch','').replace('Download','').replace('online','').encode('utf-8').lstrip()
         addLink(name,url2,327,iconimage,fanart)
     np = re.compile("<a class=\"nextpostslink\" rel=\"next\" href=\"(.+?)\">").findall(u)
     for nextpage in np:	
-        addDir('Next Page -->',nextpage,326,icon,fanart)
+        addDir('~~~ Next Page ~~~>',nextpage,326,icon,fanart)
 
 def WATCHWRESTLINGUP_LINKS(name,url):
 
