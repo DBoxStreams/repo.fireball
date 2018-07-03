@@ -1,0 +1,16 @@
+<dir>
+  <title>TV Shows</title>
+  <tmdb>list/81272</tmdb>
+</dir>
+
+<xml>
+  <dir>
+    <title>Formats</title>
+    <link>file://formats/main.xml</link>
+  </dir>
+
+  <dir>
+    <title>Shared Lists</title>
+    <link>file://shared lists/main.xml</link>
+  </dir>
+</xml>
