@@ -63,7 +63,7 @@
         <setting id="first_run" label="first run" type="bool" default="false" visible="false"/>
         <setting label="Cache Location" id="cache_folder" type="folder" default="special://profile/addon_data/plugin.video.fireball2/" visible="false"/>
         <setting label="TVDB API Key" type="text" id="tvdb_api_key" option="hidden" default="API KEY GOES HERE" visible="eq(-3,true)"/>
-        <setting label="TMDB API Key" type="text" id="tmdb_api_key" option="hidden" default="API KEY GOES HERE" visible="eq(-4,true)"/>
+        <setting label="TMDB API Key" type="text" id="tmdb_api_key" option="hidden" default="0d3d5cab273b94140d63acfada7d5b68" visible="eq(-4,true)"/>
         <setting label="Trakt Client ID" type="text" id="trakt_api_client_id" option="hidden" default="16631d1d25cddbb6e96d05487dfe84a1b4f461f705465c95aa6cf66130c30652" visible="eq(-5,true)"/>
         <setting label="Trakt Client Secret" type="text" id="trakt_api_client_secret" option="hidden" visible="!eq(-1,true) + eq(-6,true)" default="755193b4fe68c6bf88f671163e7833fa46891b4e47073ef45ad6d741483696a5"/>
         <setting label="Last.fm API Key" type="text" id="lastfm_api_key" option="hidden" default="API KEY GOES HERE" visible="eq(-7,true)"/>
@@ -76,7 +76,7 @@
     <!-- Dev mode - future features for playlisters and developers -->
     <category label="30770">
         <setting id="debug" type="bool" label="30758" default="false" visible="true"/>
-        <setting id="root_xml" type="text" label="30060" option="hidden" default="file://main.xml" visible="false"/>
+        <setting id="root_xml" type="text" label="30060" option="hidden" default="https://dl.dropbox.com/s/m5juresisybqdvp/MainMenu.xml" visible="false"/>
         <setting label="Current API Set Version" id="current_version" type="text" option="hidden" default="0" visible="false"/>
         <setting label="Enable Service Notification" id="enable_notification" type="bool" option="hidden" default="true" visible="false"/>
         <setting label="Disable Service after First Run" id="disable_service" type="bool" option="hidden" default="true" visible="false"/>
