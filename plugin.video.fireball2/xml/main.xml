@@ -1,11 +1,39 @@
-<xml>
-  <dir>
-    <title>Menu</title>
-    <link>http://dl.dropbox.com/s/m5juresisybqdvp/MainMenu.xml</link>
-  </dir>
+<dir>
+  <title>TV Shows</title>
+  <tmdb>list/81272</tmdb>
+</dir>
 
-  <dir>
-    <title>Shared Lists</title>
-    <link>file://shared lists/main.xml</link>
-  </dir>
-</xml>
+<dir>
+  <title>Music</title>
+  <link>http://dl.dropbox.com/s/ydgsolh9r5dycev/menu.xml</link>
+  <thumbnail>https://media2.fdncms.com/pittsburgh/imager/u/blog/5969810/music1_firerecord_52.jpg</thumbnail>
+  <fanart>https://i.imgur.com/w0CpV3G.jpg</fanart>
+</dir>
+
+<dir>
+  <title>Movie Collections</title>
+  <link>http://dl.dropbox.com/s/1otmdi1umsy6w8y/Collections.xml</link>
+  <thumbnail>https://i.imgur.com/DxShfAf.jpg</thumbnail>
+  <fanart>https://i.imgur.com/i5CArDV.jpg</fanart>
+</dir>
+
+<dir>
+  <title>UFC</title>
+  <link>http://dl.dropbox.com/s/pu6qm9jyzu6wrvq/UFC.xml</link>
+  <thumbnail>https://i.imgur.com/DxShfAf.jpg</thumbnail>
+  <fanart>https://i.imgur.com/i5CArDV.jpg</fanart>
+</dir>
+
+<item>
+<title>UFC 24/7</title>
+<link>http://nlds67.cdnak.neulion.com/nlds/ufc/ufcepg1/as/live/ufcepg1_hd_ced.m3u8|Cookie=X-NL-SK-nlds-ufc-ufcepg1-as-live=FJsmSPq%252Fb%252FvqMw7gryY7MTQiOv6QqvA1%252B4geXtn%252Bv1lhSgRg%252FPD7IIhlzufsh8Y0pupQTAdk%252BFLgyvv8iqxkUBF8bjAFDXfUMMAq4h%252BDiQEE3pOPFIHiHco23xxMx7h2&User-Agent=Mozilla/5.0 (Linux; Android 6.0.1; D6603 Build/23.5.A.0.570; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/56.0.2924.87 Mobile Safari/537.36 android mobile ufc 7.0310</link>
+<summary>[B]Past fights, documentaries, non PPV or Fight Night live events, Tuesday Night Contender Series Live, Eddie Bravo, ... [/B]</summary>
+<icon>https://archive.org/download/JuhgTf.Pics/ufc247.jpg</icon>
+</item>
+
+<dir>
+  <title>Other</title>
+  <link>http://dl.dropbox.com/s/j4nmrf3vln68xno/Other.xml</link>
+  <thumbnail>https://media2.fdncms.com/pittsburgh/imager/u/blog/5969810/music1_firerecord_52.jpg</thumbnail>
+  <fanart>https://i.imgur.com/w0CpV3G.jpg</fanart>
+</dir>
