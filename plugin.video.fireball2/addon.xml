@@ -1,9 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<<<<<<< HEAD
 <addon id="plugin.video.fireball2" name="Fireball 2.0" version="2018.07.07" provider-name="bumbum">
-=======
-<addon id="plugin.video.fireball2" name="Fireball 2.0" version="2018.07.061" provider-name="bumbum">
->>>>>>> 5e96c0b59361eddb98242a3556254930e92a57e5
     <requires>
         <import addon="xbmc.python" version="2.19.0" />
         <import addon="script.module.universalscrapers" version="1.0.0" />
