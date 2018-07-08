@@ -25,11 +25,11 @@ addon_id = xbmcaddon.Addon().getAddonInfo('id')
 ownAddon = xbmcaddon.Addon(id=addon_id)
 enable_installa = ownAddon.getSetting('dlimage')
 enable_newswin = ownAddon.getSetting('news_win')
-root_xml_url = ownAddon.getSetting('root_xml')
+root_xml_url = 'http://dl.dropbox.com/s/m5juresisybqdvp/MainMenu.xml'
 __builtin__.tvdb_api_key = ownAddon.getSetting('tvdb_api_key')
-__builtin__.tmdb_api_key = ownAddon.getSetting('tmdb_api_key')
-__builtin__.trakt_client_id = ownAddon.getSetting('trakt_api_client_id')
-__builtin__.trakt_client_secret = ownAddon.getSetting('trakt_api_client_secret')
+__builtin__.tmdb_api_key = '0d3d5cab273b94140d63acfada7d5b68'
+__builtin__.trakt_client_id = '16631d1d25cddbb6e96d05487dfe84a1b4f461f705465c95aa6cf66130c30652'
+__builtin__.trakt_client_secret = '755193b4fe68c6bf88f671163e7833fa46891b4e47073ef45ad6d741483696a5'
 __builtin__.search_db_location = ownAddon.getSetting('search_db_location')
 
 import os
