@@ -1,0 +1,21 @@
+<addon id="plugin.video.IMVDb"
+       name="IMVDb"
+       version="0.0.1"
+       provider-name="bumbum">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+        <import addon="script.module.requests" version="1.1.0"/>
+        <import addon="script.module.t0mm0.common" version="1.1.0"/>
+        <import addon="plugin.video.youtube"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource"
+               	library="default.py">
+        <provides>video audio</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary>Internet Music Video Database</summary>
+        <description>IMVDb is a database of music video information. Find your new favorite video, add to the database, or just watch.</description>
+        <website>https://imvdb.com/</website>
+    </extension>
+</addon>
