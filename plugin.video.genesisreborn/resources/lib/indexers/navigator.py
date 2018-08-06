@@ -37,18 +37,27 @@ traktIndicators = trakt.getTraktIndicatorsInfo()
 
 queueMenu = control.lang(32065).encode('utf-8')
 
+
 class navigator:
     def root(self):
-        #self.addDirectoryItem('Test', 'action=tvshows&url=http://api.trakt.tv/users/me/lists/series/items', 'mymovies.png', 'DefaultVideoPlaylists.png')
-        self.addDirectoryItem('Trakt Lists', 'tvshows&action=tvUserlists', 'mymovies.png', 'fanart2.png')
-        #self.addDirectoryItem('Custom Viewtype', 'viewsNavigator', 'icon.png', 'DefaultAddonProgram.png')
+        self.addDirectoryItem('[COLOR red]Search[/COLOR]', 'searchNavigator', 'search.png', 'DefaultFolder.png')
+        if traktCredentials == True:
+            self.addDirectoryItem('[COLOR yellow]Trakt[/COLOR] TV Series', 'tvshows&url=http://api.trakt.tv/users/k1m05/lists/series/items', 'trakt.png', 'DefaultTVShows.png')
+            self.addDirectoryItem('[COLOR yellow]Trakt[/COLOR] Texas Chainsaw Massacre', 'movies&url=http://api.trakt.tv/users/k1m05/lists/texas-chainsaw-massacre/items', 'trakt.png', 'DefaultTVShows.png')
+            self.addDirectoryItem('[COLOR yellow]Trakt[/COLOR] Saw', 'movies&url=http://api.trakt.tv/users/k1m05/lists/saw/items', 'trakt.png', 'DefaultTVShows.png')
+            self.addDirectoryItem('[COLOR yellow]Trakt[/COLOR] Movies', 'movies&url=http://api.trakt.tv/users/k1m05/lists/movies/items', 'trakt.png', 'DefaultTVShows.png')
+            self.addDirectoryItem('[COLOR yellow]Trakt[/COLOR] Rob Zombie', 'movies&url=http://api.trakt.tv/users/k1m05/lists/rob-zombie/items', 'trakt.png', 'DefaultTVShows.png')
+            self.addDirectoryItem('[COLOR yellow]Trakt[/COLOR] Chucky', 'movies&url=http://api.trakt.tv/users/k1m05/lists/chucky/items', 'trakt.png', 'DefaultTVShows.png')
+            self.addDirectoryItem('[COLOR yellow]Trakt[/COLOR] RarBG ScnRls', 'movies&url=http://api.trakt.tv/users/giladg/lists/latest-releases/items', 'trakt.png', 'DefaultTVShows.png')
+            self.addDirectoryItem('[COLOR yellow]Trakt[/COLOR] Horror Movie Franchises', 'movies&url=http://api.trakt.tv/users/srcapncdlvl99/lists/horror-movie-franchises/items', 'trakt.png', 'DefaultTVShows.png')
+            #self.addDirectoryItem('[COLOR yellow]Trakt[/COLOR] ', 'tvshows&url=', 'trakt.png', 'DefaultTVShows.png')
+            #self.addDirectoryItem('[COLOR yellow]Trakt[/COLOR] ', 'tvshows&url=', 'trakt.png', 'DefaultTVShows.png')
         self.addDirectoryItem('Movies', 'movieNavigator', 'movies.png', 'DefaultMovies.png')
         self.addDirectoryItem('TV Shows', 'tvNavigator', 'channels.png', 'DefaultTVShows.png')
-        self.addDirectoryItem('My Genesis Reborn Library', 'libraryNavigator', 'tools.png', 'DefaultAddonProgram.png')
 
         if not control.setting('lists.widget') == '0':
-            self.addDirectoryItem('My Genesis Reborn Movies (Trakt/Imdb)', 'mymovieNavigator', 'mymovies.png', 'DefaultVideoPlaylists.png')
-            self.addDirectoryItem('My Genesis Reborn TV Shows (Trakt/Imdb)', 'mytvNavigator', 'mymovies.png', 'DefaultVideoPlaylists.png')
+            self.addDirectoryItem('Movies (Trakt/Imdb)', 'mymovieNavigator', 'mymovies.png', 'DefaultVideoPlaylists.png')
+            self.addDirectoryItem('TV Shows (Trakt/Imdb)', 'mytvNavigator', 'mymovies.png', 'DefaultVideoPlaylists.png')
 
         if not control.setting('movie.widget') == '0':
             self.addDirectoryItem('New Movies', 'movieWidget', 'latest-movies.png', 'DefaultRecentlyAddedMovies.png')
@@ -56,17 +65,11 @@ class navigator:
         if (traktIndicators == True and not control.setting('tv.widget.alt') == '0') or (traktIndicators == False and not control.setting('tv.widget') == '0'):
             self.addDirectoryItem('New TV Shows', 'tvshows&url=premiere', 'years.png', 'DefaultRecentlyAddedEpisodes.png')
 
-        self.addDirectoryItem('Channels', 'channels', 'channels.png', 'DefaultMovies.png')
-
         self.addDirectoryItem('Tools', 'toolNavigator', 'tools.png', 'DefaultAddonProgram.png')
 
         downloads = True if control.setting('downloads') == 'true' and (len(control.listDir(control.setting('movie.download.path'))[0]) > 0 or len(control.listDir(control.setting('tv.download.path'))[0]) > 0) else False
         if downloads == True:
             self.addDirectoryItem(32009, 'downloadNavigator', 'downloads.png', 'DefaultFolder.png')
-
-        self.addDirectoryItem('Search Menu', 'searchNavigator', 'search.png', 'DefaultFolder.png')
-        
-        #self.addDirectoryItem('Join The Private Facebook Group Called - Jesus Box Media Support & Addons', 'ShowChangelog', 'icon.png', 'DefaultFolder.png')
 
         self.endDirectory()
 
@@ -88,7 +91,7 @@ class navigator:
 
         if lite == False:
             if not control.setting('lists.widget') == '0':
-                self.addDirectoryItem('My Genesis Reborn Trakt/Imdb', 'mymovieliteNavigator', 'mymovies.png', 'DefaultVideoPlaylists.png')
+                self.addDirectoryItem('Trakt/Imdb', 'mymovieliteNavigator', 'mymovies.png', 'DefaultVideoPlaylists.png')
 
             self.addDirectoryItem('People Search', 'moviePerson', 'people-search.png', 'DefaultMovies.png')
             self.addDirectoryItem('Movie Search', 'movieSearch', 'search.png', 'DefaultMovies.png')
@@ -100,26 +103,26 @@ class navigator:
         self.accountCheck()
 
         if traktCredentials == True and imdbCredentials == True:
-            self.addDirectoryItem(32032, 'movies&url=traktcollection', 'mymovies.png', 'DefaultMovies.png', queue=True, context=(32551, 'moviesToLibrary&url=traktcollection'))
-            self.addDirectoryItem(32033, 'movies&url=traktwatchlist', 'mymovies.png', 'DefaultMovies.png', queue=True, context=(32551, 'moviesToLibrary&url=traktwatchlist'))
+            self.addDirectoryItem(32032, 'movies&url=traktcollection', 'trakt.png', 'DefaultMovies.png', queue=True, context=(32551, 'moviesToLibrary&url=traktcollection'))
+            self.addDirectoryItem(32033, 'movies&url=traktwatchlist', 'trakt.png', 'DefaultMovies.png', queue=True, context=(32551, 'moviesToLibrary&url=traktwatchlist'))
             self.addDirectoryItem(32034, 'movies&url=imdbwatchlist', 'imdb.png', 'DefaultMovies.png', queue=True)
 
         elif traktCredentials == True:
-            self.addDirectoryItem(32032, 'movies&url=traktcollection', 'mymovies.png', 'DefaultMovies.png', queue=True, context=(32551, 'moviesToLibrary&url=traktcollection'))
-            self.addDirectoryItem(32033, 'movies&url=traktwatchlist', 'mymovies.png', 'DefaultMovies.png', queue=True, context=(32551, 'moviesToLibrary&url=traktwatchlist'))
+            self.addDirectoryItem(32032, 'movies&url=traktcollection', 'trakt.png', 'DefaultMovies.png', queue=True, context=(32551, 'moviesToLibrary&url=traktcollection'))
+            self.addDirectoryItem(32033, 'movies&url=traktwatchlist', 'trakt.png', 'DefaultMovies.png', queue=True, context=(32551, 'moviesToLibrary&url=traktwatchlist'))
 
         elif imdbCredentials == True:
             self.addDirectoryItem(32032, 'movies&url=imdbwatchlist', 'imdb.png', 'DefaultMovies.png', queue=True)
             self.addDirectoryItem(32033, 'movies&url=imdbwatchlist2', 'imdb.png', 'DefaultMovies.png', queue=True)
 
         if traktCredentials == True:
-            self.addDirectoryItem(32035, 'movies&url=traktfeatured', 'mymovies.png', 'DefaultMovies.png', queue=True)
+            self.addDirectoryItem(32035, 'movies&url=traktfeatured', 'trakt.png', 'DefaultMovies.png', queue=True)
 
         elif imdbCredentials == True:
             self.addDirectoryItem(32035, 'movies&url=featured', 'imdb.png', 'DefaultMovies.png', queue=True)
 
         if traktIndicators == True:
-            self.addDirectoryItem(32036, 'movies&url=trakthistory', 'mymovies.png', 'DefaultMovies.png', queue=True)
+            self.addDirectoryItem(32036, 'movies&url=trakthistory', 'trakt.png', 'DefaultMovies.png', queue=True)
 
         self.addDirectoryItem(32039, 'movieUserlists', 'userlists.png', 'DefaultMovies.png')
 
@@ -161,28 +164,28 @@ class navigator:
         self.accountCheck()
 
         if traktCredentials == True and imdbCredentials == True:
-            self.addDirectoryItem(32032, 'tvshows&url=traktcollection', 'mymovies.png', 'DefaultTVShows.png', context=(32551, 'tvshowsToLibrary&url=traktcollection'))
-            self.addDirectoryItem(32033, 'tvshows&url=traktwatchlist', 'mymovies.png', 'DefaultTVShows.png', context=(32551, 'tvshowsToLibrary&url=traktwatchlist'))
+            self.addDirectoryItem(32032, 'tvshows&url=traktcollection', 'trakt.png', 'DefaultTVShows.png', context=(32551, 'tvshowsToLibrary&url=traktcollection'))
+            self.addDirectoryItem(32033, 'tvshows&url=traktwatchlist', 'trakt.png', 'DefaultTVShows.png', context=(32551, 'tvshowsToLibrary&url=traktwatchlist'))
             self.addDirectoryItem(32034, 'tvshows&url=imdbwatchlist', 'imdb.png', 'DefaultTVShows.png')
 
         elif traktCredentials == True:
-            self.addDirectoryItem(32032, 'tvshows&url=traktcollection', 'mymovies.png', 'DefaultTVShows.png', context=(32551, 'tvshowsToLibrary&url=traktcollection'))
-            self.addDirectoryItem(32033, 'tvshows&url=traktwatchlist', 'mymovies.png', 'DefaultTVShows.png', context=(32551, 'tvshowsToLibrary&url=traktwatchlist'))
+            self.addDirectoryItem(32032, 'tvshows&url=traktcollection', 'trakt.png', 'DefaultTVShows.png', context=(32551, 'tvshowsToLibrary&url=traktcollection'))
+            self.addDirectoryItem(32033, 'tvshows&url=traktwatchlist', 'trakt.png', 'DefaultTVShows.png', context=(32551, 'tvshowsToLibrary&url=traktwatchlist'))
 
         elif imdbCredentials == True:
             self.addDirectoryItem(32032, 'tvshows&url=imdbwatchlist', 'imdb.png', 'DefaultTVShows.png')
             self.addDirectoryItem(32033, 'tvshows&url=imdbwatchlist2', 'imdb.png', 'DefaultTVShows.png')
 
         if traktCredentials == True:
-            self.addDirectoryItem(32035, 'tvshows&url=traktfeatured', 'mymovies.png', 'DefaultTVShows.png')
+            self.addDirectoryItem(32035, 'tvshows&url=traktfeatured', 'trakt.png', 'DefaultTVShows.png')
 
         elif imdbCredentials == True:
             self.addDirectoryItem(32035, 'tvshows&url=trending', 'imdb.png', 'DefaultMovies.png', queue=True)
 
         if traktIndicators == True:
-            self.addDirectoryItem(32036, 'calendar&url=trakthistory', 'mymovies.png', 'DefaultTVShows.png', queue=True)
-            self.addDirectoryItem(32037, 'calendar&url=progress', 'mymovies.png', 'DefaultRecentlyAddedEpisodes.png', queue=True)
-            self.addDirectoryItem(32038, 'calendar&url=mycalendar', 'mymovies.png', 'DefaultRecentlyAddedEpisodes.png', queue=True)
+            self.addDirectoryItem(32036, 'calendar&url=trakthistory', 'trakt.png', 'DefaultTVShows.png', queue=True)
+            self.addDirectoryItem(32037, 'calendar&url=progress', 'trakt.png', 'DefaultRecentlyAddedEpisodes.png', queue=True)
+            self.addDirectoryItem(32038, 'calendar&url=mycalendar', 'trakt.png', 'DefaultRecentlyAddedEpisodes.png', queue=True)
 
         self.addDirectoryItem(32040, 'tvUserlists', 'userlists.png', 'DefaultTVShows.png')
 
@@ -217,10 +220,10 @@ class navigator:
         self.addDirectoryItem(32560, control.setting('library.tv'), 'tvshows.png', 'DefaultTVShows.png', isAction=False)
 
         if trakt.getTraktCredentialsInfo():
-            self.addDirectoryItem(32561, 'moviesToLibrary&url=traktcollection', 'mymovies.png', 'DefaultMovies.png')
-            self.addDirectoryItem(32562, 'moviesToLibrary&url=traktwatchlist', 'mymovies.png', 'DefaultMovies.png')
-            self.addDirectoryItem(32563, 'tvshowsToLibrary&url=traktcollection', 'mymovies.png', 'DefaultTVShows.png')
-            self.addDirectoryItem(32564, 'tvshowsToLibrary&url=traktwatchlist', 'mymovies.png', 'DefaultTVShows.png')
+            self.addDirectoryItem(32561, 'moviesToLibrary&url=traktcollection', 'trakt.png', 'DefaultMovies.png')
+            self.addDirectoryItem(32562, 'moviesToLibrary&url=traktwatchlist', 'trakt.png', 'DefaultMovies.png')
+            self.addDirectoryItem(32563, 'tvshowsToLibrary&url=traktcollection', 'trakt.png', 'DefaultTVShows.png')
+            self.addDirectoryItem(32564, 'tvshowsToLibrary&url=traktwatchlist', 'trakt.png', 'DefaultTVShows.png')
 
         self.endDirectory()
 
