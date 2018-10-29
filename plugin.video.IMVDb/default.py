@@ -335,6 +335,7 @@ def playlist_metal():
     addDir('Metallica','https://imvdb.com/n/metallica',1314,'https://serenaaliasstormy.files.wordpress.com/2016/07/wpid-slipknot-new-promo-2014-png.png','Metallica')
     addDir('Eluveitie','https://imvdb.com/n/eluveitie',1314,'https://serenaaliasstormy.files.wordpress.com/2016/07/wpid-slipknot-new-promo-2014-png.png','Eluveitie')
     addDir('Pantera','https://imvdb.com/n/pantera',1314,'https://serenaaliasstormy.files.wordpress.com/2016/07/wpid-slipknot-new-promo-2014-png.png','Pantera')
+    addDir('Metallica: The Black Album','https://www.goldenmp3.ru/metallica/metallica',1,'https://serenaaliasstormy.files.wordpress.com/2016/07/wpid-slipknot-new-promo-2014-png.png','Metallica: The Black Album')
 
 def genres(url):
     addDir('All Genres','http://www.itemvn.com/justadded/Genre/All/',1050,art + 'all_genres.png','1')
@@ -1928,7 +1929,10 @@ elif mode == 201:
 	
 elif mode == 202:
     download_album(url,name,iconimage,artist)
-	
+
+elif mode == 301:
+    playlist_metal()
+
 elif mode == 1201:
     searchmenu(name,url)
 	
@@ -2018,8 +2022,5 @@ elif mode == 1327:
 	
 elif mode == 1328:
     remove_from_favourites(name, url,iconimage, FAV_VIDEOARTIST, "Removed from Favourites")
-	
-elif mode == 301:
-    playlist_metal()
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
