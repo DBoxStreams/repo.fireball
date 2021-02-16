@@ -23,82 +23,6 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.fireball2"
-       name="Fireball 2.0"
-       version="2018.10.28"
-       provider-name="bumbum">
-    <requires>
-        <import addon="xbmc.python" version="2.19.0" />
-        <import addon="script.module.universalscrapers" version="1.0.0" />
-        <import addon="script.module.python.koding.aio" version="0.9.6.6" />
-        <import addon="script.module.beautifulsoup" version="3.2.1" />
-        <import addon="script.module.requests" version="2.9.1" />
-        <import addon="script.module.addon.common" version="2.0.0" />
-        <import addon="script.module.xmltodict" version="0.9.0" />
-		<import addon="plugin.video.youtube" version="3.0.0"/>
-		<import addon="script.module.dateutil" />
-        <!--<import addon="script.module.web-pdb" version="1.0"/>-->
-        <import addon="script.module.resolveurl" />
-		<import addon="script.module.ATFlive" />
-		<import addon="script.module.ATFmobdro" />
-		<import addon="script.module.ATFTV" />
-		<import addon="script.module.jokerHD" />
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="default.py">
-    <provides>audio video</provides>
-    </extension>
-	<extension point="xbmc.addon.metadata">
-    <reuselanguageinvoker>false</reuselanguageinvoker>
-    </extension>
-    <extension point="xbmc.service" library="service.py" start="[login|startup]" />
-    <extension point="xbmc.addon.metadata">
-       <summary lang="en">Fireball 2.0</summary>
-    <description lang="en">Fireball 2.0</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="plugin.video.genesisreborn" version="999.333.999" name="[B]Genesis Reborn[/B]" provider-name="Genesis Reborn">
-	<requires>
-		<import addon="xbmc.python" version="2.19.0" />
-		<import addon="repository.jesusboxtv" version="1.0.0" />
-		<import addon="script.genesisreborn.artwork" version="1.0.4" />
-		<import addon="script.genesisreborn.metadata" version="1.0.0" />
-		<import addon="script.module.urlresolver" version="3.0.33" />
-		<import addon="script.module.metahandler" version="2.9.0" />
-		<import addon="script.module.requests"/>
-		<import addon="script.module.beautifulsoup"/>
-		<import addon="script.module.futures"/>
-	</requires>
-	<extension point="xbmc.python.pluginsource" library="genesisreborn.py">
-		<provides>video</provides>
-	</extension>
-	<extension point="xbmc.service" library="service.py" start="startup" />
-	<extension point="xbmc.addon.metadata">
-		<summary lang="en">Genesis Reborn Fork Movies/TV Shows</summary>
-		<description lang="en">Created by developer [COLOR yellow]JP Hightek[/COLOR] for Jesus Box Media. Please visit [COLOR red]www.jesusboxmedia.tv[/COLOR] for Genesis Reborn Fork Movies/TV Shows support and assistance! Please remember that genesisreborn is not an official part of the Kodi media player you are running, and therefore is not to be mentioned within official support channels of Kodi, this addon has nothing to do with the media player itself, nor it’s intended use, it is simply a third party plugin which has been added to your system.</description>
-		<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
-		<description lang="de">Bitte besuche [COLOR red]www.jesusboxmedia.tv[/COLOR] für Unterstützung und Fragen zu genesisreborn! Beachte dabei, dass genesisreborn nicht offizieller Teil des Media Players ist den du gerade verwendest und daher nicht von dem offiziellen Support-Kanäle abgedeckt wird, dieses Addon hat nichts zu tun mit dem Media-Player selbst, noch ist es dafür beabsichtigt, es handelt sich hierbei lediglich um ein Drittanbieter-Anwendung die dem System hinzugefügt wurde.</description>
-		<disclaimer lang="de">Die von diesem Addon dargestellten Inhalte werden von den Erstellern des Addons weder gehostet oder verbreitet, noch stehen die Ersteller in irgendeiner Beziehung zu den Content-Anbietern.</disclaimer>
-		<description lang="fr">SVP visitez [COLOR red]www.jesusboxmedia.tv[/COLOR] pour avoir de l'aide sur genesisreborn. Prenez note que genesisreborn n'est pas une partie intégrante de votre outil de visionnement multimedia et SVP ne le mentionnez pas dans les media sociaux officiels, cet addiciel n'a rien a voir avec votre lecteur multimedia lui même, c'est simplement un addiciel qui a été ajouté à votre système.</description>
-		<disclaimer lang="fr">L'auteur n'héberge pas ou ne distribue pas le contenu qui vous est affiché avec cet addiciel. L'auteur n'a pas d'alliance avec les distributeurs de contenu.</disclaimer>
-		<platform>all</platform>
-		<forum>https://www.jesusboxmedia.tv</forum>
-		<website>https://www.jesusboxmedia.tv/</website>
-		<source>https://jesusboxrepo.xyz/repo</source>
-		<assets>
-			<icon>icon.png</icon>
-			<fanart>fanart.jpg</fanart>
-			<screenshot>resources/screenshots/screenshot-001.jpg</screenshot>
-			<screenshot>resources/screenshots/screenshot-002.jpg</screenshot>
-			<screenshot>resources/screenshots/screenshot-003.jpg</screenshot>
-		</assets>
-		<news>- Initial release
-- Free movies
-- Free TV Shows</news>
-	</extension>
-</addon>
-
 <addon id="plugin.video.IMVDb"
        name="IMVDb"
        version="0.0.1"
@@ -119,35 +43,6 @@
         <description>IMVDb is a database of music video information. Find your new favorite video, add to the database, or just watch.</description>
         <website>https://imvdb.com/</website>
     </extension>
-</addon>
-
-<addon
-  id="plugin.video.SportsDevil"
-  version="20180411"
-  name="SportsDevil"
-  provider-name="SportsDevil">
-  <requires>
-   <import addon="xbmc.python" version="2.14.0"/>
-   <import addon="script.module.dateutil" />
-   <import addon="script.module.simplejson" />
-   <import addon="script.module.six" />
-   <import addon="script.module.requests" />
-   <import addon="script.module.streamlink.base" version="2018.02.24" />
-   <import addon="plugin.video.f4mTester" />
-  </requires>
-  <extension
-    point="xbmc.python.pluginsource"
-    library="default.py">
-   <provides>video</provides>
-  </extension>
-  <extension point="xbmc.service" library="service/streamlink_proxy.py" start="startup" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">SportsDevil</summary>
-    <description lang="en">[I]There can only be one.[/I][CR][CR]Unofficial Kodi Addon.</description>
-    <disclaimer lang="en">There can only be one.</disclaimer>
-    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-    <platform>all</platform>
-  </extension>
 </addon>
 
 <addon id="repository.guana" name="Fireball Repo" version="1.0" provider-name="bumbum">
