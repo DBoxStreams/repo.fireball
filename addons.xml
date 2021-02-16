@@ -2,7 +2,7 @@
 <addons>
 
 
-<addon id="plugin.video.fireball" name="Fireball" version="2021.02.15" provider-name="Fireball">
+<addon id="plugin.video.fireball" name="Fireball" version="2021.02.16" provider-name="Fireball">
     <requires>
         <import addon="xbmc.python" version="2.19.0" />
         <import addon="script.module.universalscrapers" version="1.0.0" />
